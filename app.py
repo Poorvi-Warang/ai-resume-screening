@@ -27,5 +27,21 @@ if resume_file and job_description:
 
     match_score = calculate_match_score(clean_resume, clean_jd)
 
-    st.subheader(" Match Result")
-    st.metric("Resume–Job Match Percentage", f"{match_score}%")
+    st.subheader("📊 Match Results")
+
+    st.metric(
+        label="Resume Match Percentage",
+        value=f"{match_score['match_percentage']}%"
+    )
+
+    st.subheader(" Matched Skills")
+    if match_score["matched_skills"]:
+        st.write(", ".join(match_score["matched_skills"]))
+    else:
+        st.write("No strong skill matches found.")
+
+    st.subheader("Missing Skills (Skill Gap)")
+    if match_score["missing_skills"]:
+        st.write(", ".join(match_score["missing_skills"]))
+    else:
+        st.write("No major skill gaps found.")
