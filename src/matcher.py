@@ -11,3 +11,4 @@ def calculate_match_score(resume_text: str, job_text: str) -> float:
     score = similarity[0][0]
 
     return round(score * 100, 2)
+
