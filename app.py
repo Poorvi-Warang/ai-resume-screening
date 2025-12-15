@@ -15,7 +15,7 @@ job_description = st.text_area("Paste Job Description here")
 def extract_text_from_pdf(pdf_file):
     reader = PdfReader(pdf_file)
     text = ""
-    for the reader page.pages:
+    for page in reader.pages:
         text += page.extract_text()
     return text
 
