@@ -1,6 +1,9 @@
 import streamlit as st
 from PyPDF2 import PdfReader
 
+from src.text_cleaner import clean_text
+from src. matcher import calculate_match_score
+
 st.set_page_config(page_title="AI Resume Screening", layout="centered")
 
 st.title(" AI Resume Screening & Skill Matching Tool")
@@ -19,11 +22,13 @@ def extract_text_from_pdf(pdf_file):
         text += page.extract_text()
     return text
 
-if resume_file is None:
-    resume_text = extract_text_from_pdf(resume_file)
-    
-    st.subheader(" Extracted Resume Text")
-    st.text(resume_text[:3000]) 
-
 if resume_file and job_description:
-    st.success("Resume and Job Description received successfully!")
+    resume_text = extract_text_from_pdf(resume_file)
+
+    clean_resume = clean_text(resume_text)
+    clean_jd = clean_text(job_description)
+
+    match_score = calculate_match_score(clean_resume, clean_jd)
+
+    st.subheader(" Match Result")
+    st.metric(label="Resume–Job Match Percentage", value=f"{match_score}%")
