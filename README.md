@@ -1,56 +1,46 @@
-AI Resume Screening & Skill Matching Tool
+   AI Resume Screening & Skill Matching Tool
 
-An AI-powered application that automatically analyzes resumes and matches them with job descriptions using NLP and Generative AI techniques.
+A professional AI-powered web application that analyzes resumes and matches them with job descriptions using NLP and Machine Learning techniques.
 
+This project simulates a real-world Applicant Tracking System (ATS) used in the recruitment process.
 
-Features
-- Upload resumes in PDF format
+    Features
+- Upload resume in PDF format
 - Extract and clean resume text
-- Match resumes with job descriptions
-- Calculate the match percentage score
-- Identify missing skills and skill gaps
-- Generate AI-based improvement suggestions
-- Simple and user-friendly web interface
+- Compare the resume with the job description
+- Generate resume–job match percentage
+- Identify matched skills
+- Detect missing skills (skill gap analysis)
+- Interactive and clean web UI using Streamlit
 
-
-Tech Stack
-- Programming: Python  
-- AI / NLP: Text Cleaning, TF-IDF, Sentiment Analysis  
-- GenAI: Prompt Engineering, OpenAI API  
+   Tech Stack
+- Language: Python  
+- NLP: Text Cleaning, TF-IDF  
+- ML: Cosine Similarity  
 - Frontend: Streamlit  
-- Automation: API Integration  
-- Tools: Git, GitHub  
-- Database: SQL (optional/extensible)
+- PDF Parsing: PyPDF2  
+- Version Control: Git, GitHub  
 
 
-Project Workflow
-1. User uploads resume (PDF)
-2. Text is extracted and cleaned
-3. Job description is processed
-4. Resume and job description are compared
-5. Match score and skill gaps are calculated
-6. AI generates suggestions for improvement
+    System Workflow
+1. User uploads a resume (PDF)
+2. Resume text is extracted and cleaned
+3. Job description text is processed
+4. TF-IDF vectors are generated
+5. Cosine similarity computes the match score
+6. Skill overlap and gaps are identified
 7. Results are displayed in the UI
 
 
- Use Cases
-- HR automation
+   Use Cases
 - Resume shortlisting
-- ATS (Applicant Tracking System) support
 - Fresher screening
-- Job–resume compatibility analysis
+- HR automation
+- ATS support systems
+- Resume–JD compatibility analysis
 
 
-Future Improvements
-- Multi-resume comparison
-- Role-based scoring system
-- Integration with LinkedIn profiles
-- Dashboard for recruiters
-- Cloud deployment
-
-
-
-Author
-Poorvi Warang
-
- This project was built to demonstrate practical AI, NLP, and GenAI skills for real-world recruitment automation.
+  How to Run Locally
+```bash
+pip install -r requirements.txt
+streamlit run app.py
